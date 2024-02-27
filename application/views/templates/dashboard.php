@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,36 +75,11 @@
                 Data Master
             </div>
 
-            <!-- Nav Item - Dashboard -->
-
-            <!-- <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('indukcoa/lihatcoa'); ?>">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Master Merk</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('indukcoa/lihatcoa'); ?>">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Master Kategori</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('indukcoa/lihatcoa'); ?>">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Master Unit</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('indukcoa/lihatcoa'); ?>">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Master Ruang</span>
-                </a>
-            </li><br> -->
+           
 
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseMaster" aria-expanded="true" aria-controls="collapseMaster">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Data Master</span>
@@ -118,7 +94,14 @@
 
                     </div>
                 </div>
-            </li>
+            </li> -->
+
+            <li class="nav-item">
+                <a class="nav-link pb-0" href="<?= base_url('dataaset'); ?>">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Saldo Awal</span>
+                </a>
+            </li><br>
             <?php  ?>
 
             <!-- Divider -->
@@ -133,13 +116,20 @@
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('dataaset'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Aset</span>
+                    <span>Pemasukan</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('datadisposal'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Disposal Aset</span>
+                    <span>Pengeluaran</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link pb-0" href="<?= base_url('datadisposal'); ?>">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Stok Alat dan Bahan</span>
                 </a>
             </li>
             <br>
@@ -152,15 +142,10 @@
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('dataaset/semuaaset'); ?>">
                     <i class="fas fa-fw fa-print"></i>
-                    <span>All Data Aset</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('datadisposal/semuadisposal'); ?>">
-                    <i class="fas fa-fw fa-print"></i>
-                    <span>All Disposal Aset</span>
+                    <span>Laporan Sistem</span>
                 </a>
             </li><br>
+          
 
 
 
