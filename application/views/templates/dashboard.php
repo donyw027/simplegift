@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title><?= $title; ?> | Aplikasi Sistem Informasi Aset</title>
+    <title><?= $title; ?> | My Simple Gift</title>
     <link rel="icon" href="<?= base_url('assets/img/xto.ico'); ?>">
 
     <!-- Custom fonts for this template-->
@@ -54,7 +54,7 @@
                     <img src="<?= base_url('assets/img/xto.png'); ?>" width="65px" height="65px" alt="">
 
                 </div>
-                <div class="sidebar-brand-text mx-3">Sistem Aset</div>
+                <div class="sidebar-brand-text mx-3">My Simple Gift</div>
             </a>
 
             <!-- Nav Item - Dashboard -->
@@ -74,8 +74,6 @@
             <div class="sidebar-heading">
                 Data Master
             </div>
-
-           
 
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -97,9 +95,23 @@
             </li> -->
 
             <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('dataaset'); ?>">
+                <a class="nav-link pb-0" href="<?= base_url('saldo'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Saldo Awal</span>
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link pb-0" href="<?= base_url('stok'); ?>">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Stok Alat dan Bahan</span>
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link pb-0" href="<?= base_url('order'); ?>">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>List Order</span>
                 </a>
             </li><br>
             <?php  ?>
@@ -114,24 +126,19 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('dataaset'); ?>">
+                <a class="nav-link pb-0" href="<?= base_url('pemasukan'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pemasukan</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('datadisposal'); ?>">
+                <a class="nav-link pb-0" href="<?= base_url('pengeluaran'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pengeluaran</span>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('datadisposal'); ?>">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Stok Alat dan Bahan</span>
-                </a>
-            </li>
+            
             <br>
 
             <hr class="sidebar-divider">
@@ -145,8 +152,6 @@
                     <span>Laporan Sistem</span>
                 </a>
             </li><br>
-          
-
 
 
             <?php if (is_admin1()) : ?>
@@ -259,7 +264,7 @@
             <footer class="sticky-footer bg-light">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Sistem Informasi Anggaran | IT Yayasan Diannanda 2023</span>
+                        <span>Copyright &copy; My Simpel Gift | ID 2024</span>
                     </div>
                 </div>
             </footer>
