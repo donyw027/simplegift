@@ -38,7 +38,7 @@
                         <tr>
                             <td><?= $no++; ?></td>
 
-                            <td><?= $saldoi['saldo']; ?></td>
+                            <td><?="Rp. " . number_format($saldoi['saldo'],0,',','.'); ?></td>
                             <td>
 
                                 <a href="<?= base_url('saldo/edit/') . $saldoi['id'] ?>" class="btn btn-circle btn-sm btn-warning"><i class="fa fa-fw fa-edit"></i></a>

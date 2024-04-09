@@ -44,7 +44,7 @@
                             <td><?= $orderi['produk']; ?></td>
                             <td><?= $orderi['orderby']; ?></td>
                             <td><?= $orderi['deadline']; ?></td>
-                            <td><?= $orderi['harga']; ?></td>
+                            <td><?="Rp. " . number_format($orderi['harga'],0,',','.'); ?></td>
                             <td>
 
                                 <a href="<?= base_url('order/edit/') . $orderi['id'] ?>" class="btn btn-circle btn-sm btn-warning"><i class="fa fa-fw fa-edit"></i></a>

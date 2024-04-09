@@ -8,25 +8,50 @@ class Dashboard extends CI_Controller
         parent::__construct();
         cek_login();
 
+    
+ 
+
         $this->load->model('Admin_model', 'admin');
     }
 
     public function index()
     {
+        
+        
+
         $data['title'] = "Dashboard";
+
+        
 
 
         $role = $this->session->userdata('login_session')['role'];
 
 
-        // $data['kategoriaset'] = $this->db->query("SELECT sum(tb_aset.jumlah_unit) AS totalaset,tb_kategori.kategori FROM tb_kategori left JOIN tb_aset on tb_kategori.kategori = tb_aset.kategori GROUP BY tb_kategori.kategori")->result_array();
+        $bulan=date('m');
+        $tahun=date('Y');
+        $hari=date('d');
+        
+        $queri_pemasukan_bulanan = $this->db->query("SELECT SUM(jumlah_pemasukan) as total_bulan FROM pemasukan WHERE MONTH(tgl) = $bulan AND YEAR(tgl)=$tahun");
+        $data['pemasukan_bulanan'] = $queri_pemasukan_bulanan->row()->total_bulan;
+        
+        $queri_pengeluaran_bulanan = $this->db->query("SELECT SUM(jumlah_pengeluaran) as total_bulan FROM pengeluaran WHERE MONTH(tgl) = $bulan AND YEAR(tgl)=$tahun");
+        $data['pengeluaran_bulanan'] = $queri_pengeluaran_bulanan->row()->total_bulan;
 
-        // $data['kategoridisposal'] = $this->db->query("SELECT sum(tb_disposal.jumlah_unit) AS totalaset,tb_kategori.kategori FROM tb_kategori left JOIN tb_disposal on tb_kategori.kategori = tb_disposal.kategori GROUP BY tb_kategori.kategori")->result_array();
+        $data['Labarugi_bulanan']= $data['pemasukan_bulanan'] - $data['pengeluaran_bulanan'];
+    
 
+        $query_total_pemasukan = $this->db->query("SELECT SUM(jumlah_pemasukan) as total_bulan FROM pemasukan");
+        $data['total_pemasukan'] = $query_total_pemasukan->row()->total_bulan;
 
+        $query_total_pengeluaran = $this->db->query("SELECT SUM(jumlah_pengeluaran) as total_bulan FROM pengeluaran");
+        $data['total_pengeluaran'] = $query_total_pengeluaran->row()->total_bulan;
 
+        $data['Labarugi_total']= $data['total_pemasukan'] - $data['total_pengeluaran'];
 
-        $data['user'] = $this->admin->count('user');
+        
+      
+        $data['stok'] = $this->admin->count('stok');
+        $data['order'] = $this->admin->count('order');
 
 
         $this->template->load('templates/dashboard', 'dashboard', $data);

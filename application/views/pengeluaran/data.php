@@ -42,7 +42,7 @@
 
                             <td><?= $pengeluarani['tgl']; ?></td>
                             <td><?= $pengeluarani['pengeluaran']; ?></td>
-                            <td><?= $pengeluarani['jumlah_pengeluaran']; ?></td>
+                            <td><?="Rp. " . number_format($pengeluarani['jumlah_pengeluaran'],0,',','.'); ?></td>
 
                             <td>
 

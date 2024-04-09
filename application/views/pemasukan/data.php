@@ -44,7 +44,7 @@
                             <td><?= $pemasukani['tgl']; ?></td>
                             <td><?= $pemasukani['produk']; ?></td>
                             <td><?= $pemasukani['orderby']; ?></td>
-                            <td><?= $pemasukani['jumlah_pemasukan']; ?></td>
+                            <td><?="Rp. " . number_format($pemasukani['jumlah_pemasukan'],0,',','.'); ?></td>
                             <td>
 
                                 <a href="<?= base_url('pemasukan/edit/') . $pemasukani['id'] ?>" class="btn btn-circle btn-sm btn-warning"><i class="fa fa-fw fa-edit"></i></a>

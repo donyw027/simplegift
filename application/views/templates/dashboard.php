@@ -147,14 +147,14 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('dataaset/semuaaset'); ?>">
+                <a class="nav-link pb-0" href="<?= base_url('laporan'); ?>">
                     <i class="fas fa-fw fa-print"></i>
                     <span>Laporan Sistem</span>
                 </a>
             </li><br>
 
 
-            <?php if (is_admin1()) : ?>
+            <?php if (is_admin()) : ?>
 
                 <hr class="sidebar-divider">
 

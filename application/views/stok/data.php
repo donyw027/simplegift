@@ -42,7 +42,7 @@
 
                             <td><?= $stoki['alatbahan']; ?></td>
                             <td><?= $stoki['jumlah']; ?></td>
-                            <td><?= $stoki['hargabeli']; ?></td>
+                            <td><?="Rp. " . number_format($stoki['hargabeli'],0,',','.'); ?></td>
                             <td>
 
                                 <a href="<?= base_url('stok/edit/') . $stoki['id'] ?>" class="btn btn-circle btn-sm btn-warning"><i class="fa fa-fw fa-edit"></i></a>

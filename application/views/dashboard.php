@@ -1,5 +1,12 @@
  <div class="row">
 
+ <?php 
+    $p_bulan=date('M');
+    $p_bulann=date('m');
+    $p_tahun=date('Y');
+    $p_hari=date('d');
+ ?>
+
 
      <?php
         $role = $this->session->userdata('login_session')['role'];
@@ -15,13 +22,29 @@
 
          </div>
      </div>
-     <div class="col-xl-4 col-6 mb-4">
+     <div class="col-xl-6 col-6 mb-4">
                                <div class="card border-left-primary shadow h-100 py-2">
              <div class="card-body">
                  <div class="row no-gutters align-items-center">
                      <div class="col mr-2">
                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pending Order</div>
-                         <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$order ?></div>
+                     </div>
+                     <div class="col-auto">
+                         <i class="fas fa-folder fa-2x text-gray-300"></i>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <div class="col-xl-6 col-6 mb-4">
+                               <div class="card border-left-danger shadow h-100 py-2">
+             <div class="card-body">
+                 <div class="row no-gutters align-items-center">
+                     <div class="col mr-2">
+                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Master Alat & Bahan</div>
+                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$stok ?></div>
                      </div>
                      <div class="col-auto">
                          <i class="fas fa-folder fa-2x text-gray-300"></i>
@@ -32,23 +55,12 @@
      </div>
 
 
-     <!-- <div class="col-xl-4 col-6 mb-4">
-         <div class="card border-left-success shadow h-100 py-2">
-             <div class="card-body">
-                 <div class="row no-gutters align-items-center">
-                     <div class="col mr-2">
-                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Date</div>
-                         <?php date_default_timezone_set("Asia/Jakarta"); ?>
+   
 
-                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= date('D , d-M-Y | h:i'); ?></div>
-                     </div>
-                     <div class="col-auto">
-                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div> -->
+    
+
+
+    
 
      <div class="col-xl-4 col-6 mb-4">
          <div class="card border-left-success shadow h-100 py-2">
@@ -58,7 +70,10 @@
                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pemasukan Bulan Ini</div>
                          <?php date_default_timezone_set("Asia/Jakarta"); ?>
 
-                         <div class="h5 mb-0 font-weight-bold text-gray-800">xxx</div>
+                         <div class="h5 mb-0 font-weight-bold text-gray-800">
+                         <?="Rp. " . number_format($pemasukan_bulanan,0,',','.'); ?>
+
+                         </div>
                      </div>
                      <div class="col-auto">
                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -75,7 +90,9 @@
                  <div class="row no-gutters align-items-center">
                      <div class="col mr-2">
                          <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pengeluaran Bulan Ini</div>
-                         <div class="h5 mb-0 font-weight-bold text-gray-800">xxx</div>
+                         <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        
+                         <?="Rp. " . number_format($pengeluaran_bulanan,0,',','.'); ?></div>
                      </div>
                      <div class="col-auto">
                          <i class="fas fa-user-plus fa-2x text-gray-300"></i>
@@ -84,6 +101,34 @@
              </div>
          </div>
      </div>
+
+     <div class="col-xl-4 col-6 mb-4">
+         <div class="card border-left-warning shadow h-100 py-2">
+             <div class="card-body">
+                 <div class="row no-gutters align-items-center">
+                     <div class="col mr-2">
+                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Laba Rugi Bulan ini</div>
+                         <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        
+                         <?php 
+                            if ($Labarugi_bulanan<0) { ?>
+                                <font color="red"> <?="Rp. " . number_format($Labarugi_bulanan,0,',','.'); ?></font>
+                            <?php }else {?>
+                                <font color="green"> <?="Rp. " . number_format($Labarugi_bulanan,0,',','.'); ?></font>
+                            <?php } ?>
+                         
+                        </div>
+                     </div>
+                     <div class="col-auto">
+                         <i class="fas fa-user-plus fa-2x text-gray-300"></i>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+
  </div>
 
  <div class="row">
@@ -91,13 +136,15 @@
  
 
      <!-- Area Chart -->
-     <div class="col-xl-6 col-6 mb-4">
+     <div class="col-xl-4 col-6 mb-4">
          <div class="card border-left-warning shadow h-100 py-2">
              <div class="card-body">
                  <div class="row no-gutters align-items-center">
                      <div class="col mr-2">
-                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"> Total Pemasukan</div>
-                         <div class="h5 mb-0 font-weight-bold text-gray-800">xxx</div>
+                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"> Total Pemasukan Keseluruhan</div>
+                         <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <?="Rp. " . number_format($total_pemasukan,0,',','.'); ?>
+                            </div>
                      </div>
                      <div class="col-auto">
                          <i class="fas fa-user-plus fa-2x text-gray-300"></i>
@@ -107,13 +154,41 @@
          </div>
      </div>
 
-     <div class="col-xl-6 col-6 mb-4">
+     <div class="col-xl-4 col-6 mb-4">
          <div class="card border-left-warning shadow h-100 py-2">
              <div class="card-body">
                  <div class="row no-gutters align-items-center">
                      <div class="col mr-2">
-                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Pengeluaran</div>
-                         <div class="h5 mb-0 font-weight-bold text-gray-800">xxx</div>
+                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Pengeluaran Keseluruhan</div>
+                         <div class="h5 mb-0 font-weight-bold text-gray-800">
+
+                         <?="Rp. " . number_format($total_pengeluaran,0,',','.'); ?>
+                         </div>
+                     </div>
+                     <div class="col-auto">
+                         <i class="fas fa-user-plus fa-2x text-gray-300"></i>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <div class="col-xl-4 col-6 mb-4">
+         <div class="card border-left-warning shadow h-100 py-2">
+             <div class="card-body">
+                 <div class="row no-gutters align-items-center">
+                     <div class="col mr-2">
+                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Laba & Rugi Keseluruhan</div>
+                         <div class="h5 mb-0 font-weight-bold text-gray-800">
+                         <?php 
+                            if ($Labarugi_total<0) { ?>
+                                <font color="red"> <?="Rp. " . number_format($Labarugi_total,0,',','.'); ?></font>
+                            <?php }else {?>
+                                <font color="green"> <?="Rp. " . number_format($Labarugi_total,0,',','.'); ?></font>
+                            <?php } ?>
+                         
+                         
+                         </div>
                      </div>
                      <div class="col-auto">
                          <i class="fas fa-user-plus fa-2x text-gray-300"></i>
@@ -127,79 +202,7 @@
     </div>
 
  
- <div class="row">
-
  
-
-     <!-- Area Chart -->
-
-
-     <div class="col-xl-6 col-6 mb-4">
-         <div class="card border-left-primary shadow h-100 py-2">
-             <div class="card-body">
-                 <div class="row no-gutters align-items-center">
-                     <div class="col mr-2">
-                         <div class="text-xl font-weight-bold text-primary text-uppercase mb-1">Data Pengeluaran</div>
-
-                         <div class="table-responsive">
-                             <table class="table" id="dataTable11">
-                                 <thead>
-                                     <tr>
-                                         <th width="30">No.</th>
-                                         <th>Tanggal</th>
-                                         <th>Jumlah</th>
-
-
-                                         <!-- <th>Aksi</th> -->
-                                     </tr>
-                                 </thead>
-                                 <tbody>
-
-                                 </tbody>
-                             </table>
-                         </div>
-                     </div>
-
-                 </div>
-             </div>
-         </div>
-     </div>
-
-
-     <div class="col-xl-6 col-6 mb-4">
-         <div class="card border-left-success shadow h-100 py-2">
-             <div class="card-body">
-                 <div class="row no-gutters align-items-center">
-                     <div class="col mr-2">
-                         <div class="text-xl font-weight-bold text-primary text-uppercase mb-1">Data Pemasukan</div>
-
-                         <div class="table-responsive">
-                             <table class="table" id="dataTable11">
-                                 <thead>
-                                     <tr>
-                                         <th width="30">No.</th>
-                                         <th>Tanggal</th>
-                                         <th>Jumlah </th>
-
-
-                                         <!-- <th>Aksi</th> -->
-                                     </tr>
-                                 </thead>
-                                 <tbody>
-
-                                 </tbody>
-                             </table>
-                         </div>
-                     </div>
-
-                 </div>
-             </div>
-         </div>
-     </div>
-
-
-
- </div>
 
 
  <!-- </div>
