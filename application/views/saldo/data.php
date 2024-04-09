@@ -24,7 +24,9 @@
             <thead>
                 <tr>
                     <th width="30">No.</th>
+                    <th>Tgl Penambahan Saldo</th>
                     <th>saldo</th>
+                    <th>Keterangan</th>
 
                     <th>Aksi</th>
                 </tr>
@@ -37,13 +39,15 @@
                 ?>
                         <tr>
                             <td><?= $no++; ?></td>
-
+                            <td><?=$saldoi['tgl'] ?></td>
                             <td><?="Rp. " . number_format($saldoi['saldo'],0,',','.'); ?></td>
+                            <td><?=$saldoi['ket'] ?></td>
                             <td>
 
                                 <a href="<?= base_url('saldo/edit/') . $saldoi['id'] ?>" class="btn btn-circle btn-sm btn-warning"><i class="fa fa-fw fa-edit"></i></a>
                                 <a onclick="return confirm('Yakin ingin menghapus data?')" href="<?= base_url('saldo/delete/') . $saldoi['id'] ?>" class="btn btn-circle btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></a>
                             </td>
+                            
                         </tr>
                     <?php endforeach;
                 else : ?>

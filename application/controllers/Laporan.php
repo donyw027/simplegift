@@ -22,6 +22,9 @@ class Laporan extends CI_Controller
         $bulan=date('m');
         $tahun=date('Y');
         $hari=date('d');
+
+        $saldo = $this->db->query("SELECT SUM(saldo) as total_saldo FROM saldo")->row()->total_saldo;
+        
         
         $queri1 = $this->db->query("SELECT SUM(jumlah_pemasukan) as total_bulan FROM pemasukan WHERE MONTH(tgl) = 01 AND YEAR(tgl)=$tahun");
         $data['pemasukan_bulanan1'] = $queri1->row()->total_bulan;
@@ -59,7 +62,7 @@ class Laporan extends CI_Controller
         $queri12 = $this->db->query("SELECT SUM(jumlah_pemasukan) as total_bulan FROM pemasukan WHERE MONTH(tgl) = 12 AND YEAR(tgl)=$tahun");
         $data['pemasukan_bulanan12'] = $queri12->row()->total_bulan;
 
-        $data['total_pemasukan'] = $data['pemasukan_bulanan1'] + $data['pemasukan_bulanan2'] + $data['pemasukan_bulanan3'] + $data['pemasukan_bulanan4'] + $data['pemasukan_bulanan5'] + $data['pemasukan_bulanan6'] + $data['pemasukan_bulanan7'] + $data['pemasukan_bulanan8'] + $data['pemasukan_bulanan9'] + $data['pemasukan_bulanan10'] + $data['pemasukan_bulanan11'] + $data['pemasukan_bulanan12'];
+        $data['total_pemasukan'] = $saldo + $data['pemasukan_bulanan1'] + $data['pemasukan_bulanan2'] + $data['pemasukan_bulanan3'] + $data['pemasukan_bulanan4'] + $data['pemasukan_bulanan5'] + $data['pemasukan_bulanan6'] + $data['pemasukan_bulanan7'] + $data['pemasukan_bulanan8'] + $data['pemasukan_bulanan9'] + $data['pemasukan_bulanan10'] + $data['pemasukan_bulanan11'] + $data['pemasukan_bulanan12'];
 
         //pengeluaran---------------------------------------------------------------------------------------------
 
@@ -116,7 +119,7 @@ class Laporan extends CI_Controller
         $data['labarugi11'] = $data['pemasukan_bulanan11'] -$data['pengeluaran_bulanan11'];
         $data['labarugi12'] = $data['pemasukan_bulanan12'] -$data['pengeluaran_bulanan12'];
 
-        $data['total_labarugi'] = $data['labarugi1'] + $data['labarugi2'] + $data['labarugi3'] + $data['labarugi4'] + $data['labarugi5'] + $data['labarugi6'] + $data['labarugi7'] + $data['labarugi8'] + $data['labarugi9'] + $data['labarugi10'] + $data['labarugi11'] + $data['labarugi12'];
+        $data['total_labarugi'] = $saldo + $data['labarugi1'] + $data['labarugi2'] + $data['labarugi3'] + $data['labarugi4'] + $data['labarugi5'] + $data['labarugi6'] + $data['labarugi7'] + $data['labarugi8'] + $data['labarugi9'] + $data['labarugi10'] + $data['labarugi11'] + $data['labarugi12'];
 
 
         $this->template->load('templates/dashboard', 'laporan/data', $data);

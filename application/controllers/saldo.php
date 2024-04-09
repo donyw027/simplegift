@@ -50,7 +50,9 @@ class Saldo extends CI_Controller
         } else {
             $input = $this->input->post(null, true);
             $input_data = [
-                'saldo'       => $input['saldo']
+                'tgl'       => $input['tgl'],
+                'saldo'       => $input['saldo'],
+                'ket'       => $input['ket']
 
             ];
 
@@ -76,7 +78,9 @@ class Saldo extends CI_Controller
         } else {
             $input = $this->input->post(null, true);
             $input_data = [
-                'saldo'       => $input['saldo']
+                'tgl'       => $input['tgl'],
+                'saldo'       => $input['saldo'],
+                'ket'       => $input['ket']
 
             ];
 

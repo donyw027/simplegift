@@ -23,11 +23,28 @@
             <div class="card-body pb-2">
                 <?= $this->session->flashdata('pesan'); ?>
                 <?= form_open(); ?>
+
+                <div class="row form-group">
+                    <label class="col-md-4 text-md-right" for="tgl">Tgl Penambahan Saldo</label>
+                    <div class="col-md-6">
+                        <input value="<?= set_value('tgl'); ?>" type="date" id="tgl" name="tgl" class="form-control" placeholder="tgl">
+                        <?= form_error('tgl', '<span class="text-danger small">', '</span>'); ?>
+                    </div>
+                </div>
+                
                 <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="saldo">saldo</label>
                     <div class="col-md-6">
                         <input value="<?= set_value('saldo'); ?>" type="text" id="saldo" name="saldo" class="form-control" placeholder="saldo">
                         <?= form_error('saldo', '<span class="text-danger small">', '</span>'); ?>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-md-4 text-md-right" for="ket">Keterangan</label>
+                    <div class="col-md-6">
+                        <input value="<?= set_value('ket'); ?>" type="text" id="ket" name="ket" class="form-control" placeholder="keterangan">
+                        <?= form_error('ket', '<span class="text-danger small">', '</span>'); ?>
                     </div>
                 </div>
 

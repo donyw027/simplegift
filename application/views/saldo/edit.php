@@ -24,10 +24,26 @@
                 <?= $this->session->flashdata('pesan'); ?>
                 <?= form_open('', [], ['id' => $saldo['id']]); ?>
                 <div class="row form-group">
+                    <label class="col-md-4 text-md-right" for="tgl">Tgl Penambahan</label>
+                    <div class="col-md-6">
+                        <input value="<?= set_value('tgl', $saldo['tgl']); ?>" type="text" id="tgl" name="tgl" class="form-control" placeholder="tgl">
+                        <?= form_error('tgl', '<span class="text-danger small">', '</span>'); ?>
+                    </div>
+                </div>
+
+                <div class="row form-group">
                     <label class="col-md-4 text-md-right" for="saldo">saldo</label>
                     <div class="col-md-6">
                         <input value="<?= set_value('saldo', $saldo['saldo']); ?>" type="text" id="saldo" name="saldo" class="form-control" placeholder="saldo">
                         <?= form_error('saldo', '<span class="text-danger small">', '</span>'); ?>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-md-4 text-md-right" for="ket">keterangan</label>
+                    <div class="col-md-6">
+                        <input value="<?= set_value('ket', $saldo['ket']); ?>" type="text" id="ket" name="ket" class="form-control" placeholder="ket">
+                        <?= form_error('ket', '<span class="text-danger small">', '</span>'); ?>
                     </div>
                 </div>
 

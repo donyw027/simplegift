@@ -51,10 +51,10 @@
             <a class="sidebar-brand d-flex text-white align-items-center bg-primary justify-content-center" href="">
                 <div class="sidebar-brand-icon">
                     <!-- <i class="fas fa-school"></i> -->
-                    <img src="<?= base_url('assets/img/xto.png'); ?>" width="65px" height="65px" alt="">
+                    <img src="<?= base_url('assets/img/xto00.png'); ?>" width="50px" height="50px" alt="">
 
                 </div>
-                <div class="sidebar-brand-text mx-3">My Simple Gift</div>
+                <div class="sidebar-brand-text mx-1"><font color=black>My Simple Gift</font></div>
             </a>
 
             <!-- Nav Item - Dashboard -->
@@ -97,7 +97,7 @@
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('saldo'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Saldo Awal</span>
+                    <span>Saldo / Modal</span>
                 </a>
             </li>
             
@@ -215,7 +215,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline small text-capitalize">
-                                    <?= userdata('nama'); ?>
+                                    <font color=black><?= userdata('nama'); ?></font>
                                 </span>
                                 <img class="img-profile rounded-circle" src="<?= base_url() ?>assets/img/avatar/<?= userdata('foto'); ?>">
                             </a>
