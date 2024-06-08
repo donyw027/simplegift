@@ -96,6 +96,34 @@ class Order extends CI_Controller
         }
     }
 
+    public function masuk_pemasukan($getId)
+    {
+        $id = encode_php_tags($getId);
+        $this->_validasi('add');
+        $order = $this->admin->get('order', ['id' => $id]);
+        $tgl = date('Y-m-d');
+        $produk = set_value('produk', $order['produk']) . ' (deadline :' . set_value('deadline', $order['deadline']).')';
+        $orderby = set_value('orderby', $order['orderby']);
+        $jumlah_pemasukan = set_value('harga', $order['harga']);
+        // var_dump($produk);die();
+        
+
+        $input_data = [
+            'tgl'       => $tgl,
+            'produk'       => $produk,
+            'orderby'       => $orderby,
+            'jumlah_pemasukan'       => $jumlah_pemasukan
+        ];
+
+            $this->admin->insert('pemasukan', $input_data);
+            $this->admin->delete('order', 'id', $id);
+                set_pesan('data berhasil ditambah.');
+                redirect('order');
+            
+        
+    }
+    
+
     public function delete($getId)
     {
         $id = encode_php_tags($getId);

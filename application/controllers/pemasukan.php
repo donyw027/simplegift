@@ -20,7 +20,7 @@ class Pemasukan extends CI_Controller
         $role = $this->session->userdata('login_session')['role'];
 
         if (is_admin() == true) {
-            $data['pemasukan'] = $this->admin->get('pemasukan');
+            $data['pemasukan'] = $this->admin->pemasukan_desc();
 
             $this->template->load('templates/dashboard', 'pemasukan/data', $data);
         }

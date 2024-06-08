@@ -16,9 +16,40 @@
          <div class="card shadow mb-4">
              <!-- Card Header - Dropdown -->
              <div class="card-header bg-primary py-3 d-flex flex-row align-items-center justify-content-between">
-                 <h3 class="m-0 font-weight-bold text-white"></h3>
-             </div>
-             <!-- Card Body -->
+                 
+
+<form action="<?= base_url('laporan/') ?>" method="post" accept-charset="utf-8">
+                
+<table>
+   <tr>
+      <td>
+      <select class="form-control" name="tahun">
+                          <option value="---">---Pilih Tahun---</option>
+                          <option value="2021">2021</option>
+                          <option value="2022">2022</option>
+                          <option value="2023">2023</option>
+                          <option value="2024">2024</option>
+                          <option value="2025">2025</option>
+                          <option value="2026">2026</option>
+                          <option value="2027">2027</option>
+                          <option value="2028">2028</option>
+                          <option value="2029">2029</option>
+                          <option value="2030">2030</option>
+                     
+                        </select>
+      </td>
+      
+      <td><input type="submit" name="save" class="btn btn-info" value="Cari"></td>
+   </tr>
+</table>
+                        
+
+                      
+                    </div>
+                    <!-- /.card-body -->
+                  </form>
+                 
+             
 
          </div>
      </div>

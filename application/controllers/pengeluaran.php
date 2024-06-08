@@ -20,7 +20,7 @@ class Pengeluaran extends CI_Controller
         $role = $this->session->userdata('login_session')['role'];
 
         if (is_admin() == true) {
-            $data['pengeluaran'] = $this->admin->get('pengeluaran');
+            $data['pengeluaran'] = $this->admin->pengeluaran_desc();
 
             $this->template->load('templates/dashboard', 'pengeluaran/data', $data);
         }

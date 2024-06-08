@@ -49,6 +49,7 @@
 
                                 <a href="<?= base_url('order/edit/') . $orderi['id'] ?>" class="btn btn-circle btn-sm btn-warning"><i class="fa fa-fw fa-edit"></i></a>
                                 <a onclick="return confirm('Yakin ingin menghapus data?')" href="<?= base_url('order/delete/') . $orderi['id'] ?>" class="btn btn-circle btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></a>
+                                <a onclick="return confirm('Pesanan Selesai, Masukan ke pemasukan dan hapus dari list order?')" href="<?= base_url('order/masuk_pemasukan/') . $orderi['id'] ?>" class="btn btn-circle btn-sm btn-info"><i class="fa fa-fw fa-check"></i></a>
                             </td>
                         </tr>
                     <?php endforeach;

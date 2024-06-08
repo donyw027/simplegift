@@ -12,6 +12,38 @@ class Admin_model extends CI_Model
         }
     }
 
+    public function pemasukan_desc() {
+        $this->db->order_by('tgl', 'DESC');
+        $query = $this->db->get('pemasukan');
+        return $query->result_array();
+    }
+
+    public function pengeluaran_desc() {
+        $this->db->order_by('tgl', 'DESC');
+        $query = $this->db->get('pengeluaran');
+        return $query->result_array();
+    }
+
+    // public function get_keyword($keyword=1)
+    // {
+
+    //     $id_s = $this->session->userdata('kelas_siswa');
+    //     $id_g = $this->session->userdata('kelas_guru');
+    //      $this->db->select('*');
+    //      if ($this->session->userdata('level') == 'siswa') {
+    //     $this->db->where('kode_kelas', $id_s);//
+    //     }elseif ($this->session->userdata('level') == 'guru') {
+    //         $this->db->where('kode_kelas', $id_g);//
+    //     }
+
+    //     $this->db->like('week',$keyword);
+    //     $this->db->from('tbl_aktifitas');
+        
+    //     return $this->db->get()->result();
+    // }
+
+    
+
     public function update($table, $pk, $id, $data)
     {
         $this->db->where($pk, $id);
@@ -54,7 +86,7 @@ class Admin_model extends CI_Model
         return $this->db->get($table)->result_array();
     }
 
-    public function getcoa()
+    public function getpemasukan()
     {
         $role = $this->session->userdata('login_session')['role'];
 

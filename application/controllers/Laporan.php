@@ -126,5 +126,10 @@ class Laporan extends CI_Controller
         
     }
 
+    // function search() {
+    //     $keyword = $this->input->post('tahun');
+	// 	$data['s_aktifitas']=$this->Aktifitas_Model->get_keyword($keyword);
+    // }
+
     
 }
